@@ -42,3 +42,10 @@ deci y el acomulado pasa a l jugador (guarda los datos del jugador)
 correcta. (guarda los datos del jugador)
 ● Persistencia de datos: al finalizar el juego se debe guardar los datos del jugador como
 histórico del juego.
+
+
+
+Nota:
+------------------------------------------------------
+El reto se encuentra en la rama master del repositorio
+------------------------------------------------------
