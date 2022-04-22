@@ -1,7 +1,6 @@
 # RetoJuegoPreguntas
 
-
-
+Descripcion del problema
 
 Use Case/Problem
 Lo que se busca en este juego es pre-construir una serie de preguntas con 4 opciones de
@@ -43,6 +42,33 @@ correcta. (guarda los datos del jugador)
 ● Persistencia de datos: al finalizar el juego se debe guardar los datos del jugador como
 histórico del juego.
 
+
+Para el desarrollo de este Programa se usaron las siguientes tecnologías: 
+
+- IDE Apache NetBeans 12.6
+- Lenguaje de programación Java con el uso del gestor de dependencias Maven 
+- Motor de base de datos MySQL 
+- Sistema de gestión de bases de datos XAMPP 
+- Servidor web Apache
+
+
+Para el modelado se tuvo en cuenta 3 clases llamadas:
+
+- Jugador 
+- Preguntas
+- Respuestas
+
+Nombre de la base de datos:
+
+-reto_juego_preguntas
+
+Indicaciones para la ejecución 
+
+-Iniciar XAMPP
+-EL usuario de la base de datos es root y no tiene contraseña
+-Crear una base de datos llamada reto_juego_preguntas
+-Ejecutar los scripts de SQL para crear las diferentes tablas mencionadas anteriormente y cargar las preguntas y respuestas del juego.
+Ejecutar el .jar que se encuentra en la raiz del proyecto
 
 
 Nota:
