@@ -19,6 +19,8 @@ public class FormHistorial extends javax.swing.JFrame {
     public FormHistorial() {
         initComponents();
         miJuego = miJuego.ObtenerMiJuego();
+        pintarTabla();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -29,7 +31,6 @@ public class FormHistorial extends javax.swing.JFrame {
         botonMenu = new javax.swing.JButton();
         scrollPanelTabla = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
-        botonCargarHistorial = new javax.swing.JButton();
         tituloHistorial = new javax.swing.JLabel();
         botonSalir = new javax.swing.JButton();
 
@@ -71,15 +72,6 @@ public class FormHistorial extends javax.swing.JFrame {
         tablaHistorial.setGridColor(new java.awt.Color(102, 102, 255));
         scrollPanelTabla.setViewportView(tablaHistorial);
 
-        botonCargarHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        botonCargarHistorial.setForeground(new java.awt.Color(51, 0, 153));
-        botonCargarHistorial.setText("Cargar historial");
-        botonCargarHistorial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCargarHistorialActionPerformed(evt);
-            }
-        });
-
         tituloHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         tituloHistorial.setForeground(new java.awt.Color(51, 0, 153));
         tituloHistorial.setText("Historial de juego");
@@ -110,15 +102,13 @@ public class FormHistorial extends javax.swing.JFrame {
                                 .addComponent(tituloHistorial))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(botonCargarHistorial))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(botonMenu)))
+                                .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(botonMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,13 +116,11 @@ public class FormHistorial extends javax.swing.JFrame {
                 .addComponent(botonSalir)
                 .addGap(2, 2, 2)
                 .addComponent(tituloHistorial)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonCargarHistorial)
-                .addGap(38, 38, 38)
+                .addGap(74, 74, 74)
                 .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(67, 67, 67)
                 .addComponent(botonMenu)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,9 +131,7 @@ public class FormHistorial extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 257, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -160,33 +146,6 @@ public class FormHistorial extends javax.swing.JFrame {
         pantallaPrincipal.setVisible(true);
         dispose();
     }//GEN-LAST:event_botonMenuActionPerformed
-
-    private void botonCargarHistorialActionPerformed(ActionEvent evt) {//GEN-FIRST:event_botonCargarHistorialActionPerformed
-        String [][] tabla = miJuego.cargarHistorial();
-        
-            DefaultTableModel modelo = new DefaultTableModel();
-            tablaHistorial.setModel(modelo);
-
-            //int cantidadColumnas = rsMd.getColumnCount();
-
-            modelo.addColumn("Nombre del jugador");
-            modelo.addColumn("Puntaje");
-
-            int[] anchos = {200, 50};
-            for (int i = 0; i < tablaHistorial.getColumnCount(); i++) {
-                tablaHistorial.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-            }
-
-//            while (resultSet.next()) {
-//                Object[] filas = new Object[cantidadColumnas];
-//                for (int i = 0; i < cantidadColumnas; i++) {
-//                    filas[i] = resultSet.getObject(i + 1);
-//                }
-//                modelo.addRow(filas);
-//            }
-
-       
-    }//GEN-LAST:event_botonCargarHistorialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,7 +186,6 @@ public class FormHistorial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCargarHistorial;
     private javax.swing.JButton botonMenu;
     private javax.swing.JButton botonSalir;
     private javax.swing.JPanel jPanel1;
@@ -235,4 +193,42 @@ public class FormHistorial extends javax.swing.JFrame {
     private javax.swing.JTable tablaHistorial;
     private javax.swing.JLabel tituloHistorial;
     // End of variables declaration//GEN-END:variables
+
+    private void pintarTabla() {
+        try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            tablaHistorial.setModel(modelo);
+
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+            Conexion conexion = new Conexion();
+            Connection connectionClass = conexion.getConnection();
+
+            String SQL_SELECT_JUGADORES = "SELECT nombre_jugador, puntaje FROM jugador";
+            preparedStatement = connectionClass.prepareStatement(SQL_SELECT_JUGADORES);
+            resultSet = preparedStatement.executeQuery();
+
+            ResultSetMetaData rsMd = (ResultSetMetaData) resultSet.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();
+
+            modelo.addColumn("Nombre del jugador");
+            modelo.addColumn("Puntaje");
+
+            int[] anchos = {150, 50};
+            for (int i = 0; i < tablaHistorial.getColumnCount(); i++) {
+                tablaHistorial.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
+            }
+
+            while (resultSet.next()) {
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    filas[i] = resultSet.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+
+        } catch (SQLException exception) {
+            JOptionPane.showMessageDialog(null,"Error mostrando historial: " + exception.getMessage());
+        }
+    }
 }

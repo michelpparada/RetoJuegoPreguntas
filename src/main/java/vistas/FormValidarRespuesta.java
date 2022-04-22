@@ -78,6 +78,11 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(153, 153, 255));
         jTextField1.setForeground(new java.awt.Color(51, 0, 153));
         jTextField1.setText("CORRECTA O INCORRECTA");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,6 +165,10 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
     private void valorPremioAcumuladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPremioAcumuladoActionPerformed
         this.miJuego.getAcumulado();
     }//GEN-LAST:event_valorPremioAcumuladoActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
