@@ -116,7 +116,7 @@ public class Juego {
 
     private void buscarRespuestas() {
         //llama a la bd busca las preguntas con su id con id pregunta y llena las respuestas
-        String SQL_BUSCAR_PREGUNTA = "SELECT id_respuesta,respuesta,respuesta_correcta,puntuacion_respuesta FROM respuestas where id_pregunta = ?";
+        String SQL_BUSCAR_RESPUESTA = "SELECT id_respuesta,respuesta,respuesta_correcta,puntuacion_respuesta FROM respuestas where id_pregunta = ?";
 
         this.misRespuestas = new ArrayList<>();
         pregunta++;
@@ -125,7 +125,7 @@ public class Juego {
             PreparedStatement preparedStatement = null;
             ResultSet resultSet = null;
             Connection connectionClass = conexion.getConnection();
-            preparedStatement = connectionClass.prepareStatement(SQL_BUSCAR_PREGUNTA);
+            preparedStatement = connectionClass.prepareStatement(SQL_BUSCAR_RESPUESTA);
             preparedStatement.setInt(1,this.pregunta-1);
             resultSet = preparedStatement.executeQuery();
             
@@ -161,7 +161,7 @@ public class Juego {
         return acumulado;
     }
 
-    public int validarPregunta(int idRespuesta) {
+    public int validarRespuesta(int idRespuesta) {
         if(this.misRespuestas.get(idRespuesta).get("correcta") == "1"){
             this.acumularPremio();
             return 1;
@@ -188,6 +188,10 @@ public class Juego {
             JOptionPane.showMessageDialog(null,"Error mostrando historial: " + exception.getMessage());
         }
          return null;
+    }
+
+    public void incrementarRonda() {
+         this.ronda++;
     }
     
     

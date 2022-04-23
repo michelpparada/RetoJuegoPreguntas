@@ -11,9 +11,10 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         initComponents();
         if (idRespuesta != 5) {
             miJuego = miJuego.ObtenerMiJuego();
-            this.descripcionValidacionRespuesta.setText(validarPregunta(idRespuesta));
+            this.IsRespuesta.setText(validarRespuesta(idRespuesta));
             validarContinuarJuego();
-            this.miJuego.getAcumulado();
+            //this.miJuego.getAcumulado();
+            //this.valorPremioAcumulado.setText(String.valueOf(miJuego.getAcumulado()));
         }
     }
 
@@ -23,12 +24,10 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         botonSiguientePregunta = new javax.swing.JButton();
-        valorPremioAcumulado = new javax.swing.JTextField();
-        descripcionPremioAcumulado = new javax.swing.JLabel();
         descripcionValidacionRespuesta = new javax.swing.JLabel();
         botonSalir = new javax.swing.JButton();
         tituloValidacionRespuesta = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        IsRespuesta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,18 +43,6 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
                 botonSiguientePreguntaActionPerformed(evt);
             }
         });
-
-        valorPremioAcumulado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        valorPremioAcumulado.setForeground(new java.awt.Color(204, 204, 204));
-        valorPremioAcumulado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valorPremioAcumuladoActionPerformed(evt);
-            }
-        });
-
-        descripcionPremioAcumulado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        descripcionPremioAcumulado.setForeground(new java.awt.Color(51, 0, 153));
-        descripcionPremioAcumulado.setText("Premio acumulado: $");
 
         descripcionValidacionRespuesta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         descripcionValidacionRespuesta.setForeground(new java.awt.Color(51, 0, 153));
@@ -75,12 +62,11 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         tituloValidacionRespuesta.setForeground(new java.awt.Color(51, 0, 153));
         tituloValidacionRespuesta.setText("Validación de respuesta");
 
-        jTextField1.setBackground(new java.awt.Color(153, 153, 255));
-        jTextField1.setForeground(new java.awt.Color(51, 0, 153));
-        jTextField1.setText("CORRECTA O INCORRECTA");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        IsRespuesta.setBackground(new java.awt.Color(153, 153, 255));
+        IsRespuesta.setForeground(new java.awt.Color(51, 0, 153));
+        IsRespuesta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                IsRespuestaActionPerformed(evt);
             }
         });
 
@@ -88,25 +74,20 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(tituloValidacionRespuesta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonSalir))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(descripcionValidacionRespuesta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IsRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(tituloValidacionRespuesta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(descripcionPremioAcumulado)
-                        .addGap(43, 43, 43)
-                        .addComponent(valorPremioAcumulado, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123))
+                    .addComponent(botonSalir, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(botonSiguientePregunta)
                         .addGap(190, 190, 190))))
@@ -114,20 +95,14 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonSalir)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tituloValidacionRespuesta)))
-                .addGap(93, 93, 93)
+                .addComponent(botonSalir)
+                .addGap(11, 11, 11)
+                .addComponent(tituloValidacionRespuesta)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descripcionValidacionRespuesta)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valorPremioAcumulado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descripcionPremioAcumulado))
-                .addGap(37, 37, 37)
+                    .addComponent(IsRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(botonSiguientePregunta)
                 .addGap(23, 23, 23))
         );
@@ -154,6 +129,7 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         FormJuego pantallaJuego = new FormJuego();
         pantallaJuego.setVisible(true);
         dispose();
+        this.miJuego.incrementarRonda();
         this.miJuego.vaciarRespuestas();
     }//GEN-LAST:event_botonSiguientePreguntaActionPerformed
 
@@ -162,13 +138,9 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_botonSalirActionPerformed
 
-    private void valorPremioAcumuladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPremioAcumuladoActionPerformed
-        this.miJuego.getAcumulado();
-    }//GEN-LAST:event_valorPremioAcumuladoActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void IsRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IsRespuestaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_IsRespuestaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -206,25 +178,25 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IsRespuesta;
     private javax.swing.JButton botonSalir;
     private javax.swing.JButton botonSiguientePregunta;
-    private javax.swing.JLabel descripcionPremioAcumulado;
     private javax.swing.JLabel descripcionValidacionRespuesta;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel tituloValidacionRespuesta;
-    private javax.swing.JTextField valorPremioAcumulado;
     // End of variables declaration//GEN-END:variables
 
-    private String validarPregunta(int idRespuesta) {
-        this.respuesta = this.miJuego.validarPregunta(idRespuesta);
-        return this.respuesta == 1 ? "Verdadero" : "Falso";
+    private String validarRespuesta(int idRespuesta) {
+        this.respuesta = this.miJuego.validarRespuesta(idRespuesta);
+        System.out.println("idRespuesta = " + idRespuesta);
+        return this.respuesta == 1 ? "Falsa" : "Verdadera";
+        
     }
 
     private void validarContinuarJuego() {
         if (this.respuesta == 0) {
-            this.descripcionPremioAcumulado.setVisible(false);
-            this.descripcionValidacionRespuesta.setText("Fin del Juego");
+            //this.descripcionPremioAcumulado.setVisible(false);
+            //this.IsRespuesta.setText("Fin del Juego");
         }
     }
 }

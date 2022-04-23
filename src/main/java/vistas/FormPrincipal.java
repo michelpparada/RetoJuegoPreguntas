@@ -26,7 +26,7 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         tituloJuego.setBackground(new java.awt.Color(51, 102, 255));
         tituloJuego.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        tituloJuego.setForeground(new java.awt.Color(255, 255, 255));
+        tituloJuego.setForeground(new java.awt.Color(51, 0, 153));
         tituloJuego.setText("QUIEN QUIERE SER MILLONARIO");
 
         botonIniciarJuego.setBackground(new java.awt.Color(102, 102, 255));

@@ -14,7 +14,7 @@ public class FormJuego extends javax.swing.JFrame {
         this.textoPregunta.setText(this.miJuego.obtenerPregunta());    
         this.opcionRespuestaUno.setText(this.llenarRespuesta(0));
         this.opcionRespuestaDos.setText(this.llenarRespuesta(1));
-        this.opcionRespuesta3.setText(this.llenarRespuesta(2));
+        this.opcionRespuestaTres.setText(this.llenarRespuesta(2));
         this.opcionRespuestaCuatro.setText(this.llenarRespuesta(3));
         
     }
@@ -29,7 +29,7 @@ public class FormJuego extends javax.swing.JFrame {
         botonRetiroVoluntario = new javax.swing.JButton();
         opcionRespuestaUno = new javax.swing.JRadioButton();
         opcionRespuestaDos = new javax.swing.JRadioButton();
-        opcionRespuesta3 = new javax.swing.JRadioButton();
+        opcionRespuestaTres = new javax.swing.JRadioButton();
         opcionRespuestaCuatro = new javax.swing.JRadioButton();
         valorAcumulado = new javax.swing.JTextField();
         textoPregunta = new javax.swing.JTextField();
@@ -84,12 +84,12 @@ public class FormJuego extends javax.swing.JFrame {
             }
         });
 
-        grupoRespuestas.add(opcionRespuesta3);
-        opcionRespuesta3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        opcionRespuesta3.setForeground(new java.awt.Color(51, 0, 153));
-        opcionRespuesta3.addActionListener(new java.awt.event.ActionListener() {
+        grupoRespuestas.add(opcionRespuestaTres);
+        opcionRespuestaTres.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        opcionRespuestaTres.setForeground(new java.awt.Color(51, 0, 153));
+        opcionRespuestaTres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionRespuesta3ActionPerformed(evt);
+                opcionRespuestaTresActionPerformed(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class FormJuego extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(textoPregunta, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(opcionRespuesta3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(opcionRespuestaTres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(opcionRespuestaDos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(opcionRespuestaUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +227,7 @@ public class FormJuego extends javax.swing.JFrame {
                 .addComponent(opcionRespuestaDos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(opcionRespuesta3)
+                    .addComponent(opcionRespuestaTres)
                     .addComponent(valorAcumulado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(opcionRespuestaCuatro)
@@ -260,9 +260,9 @@ public class FormJuego extends javax.swing.JFrame {
         
     }//GEN-LAST:event_opcionRespuestaDosActionPerformed
 
-    private void opcionRespuesta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRespuesta3ActionPerformed
+    private void opcionRespuestaTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRespuestaTresActionPerformed
         
-    }//GEN-LAST:event_opcionRespuesta3ActionPerformed
+    }//GEN-LAST:event_opcionRespuestaTresActionPerformed
 
     private void opcionRespuestaCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRespuestaCuatroActionPerformed
         
@@ -283,6 +283,7 @@ public class FormJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRetiroVoluntarioActionPerformed
 
     private void numeroPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroPreguntaActionPerformed
+        System.out.println("miJuego.getRonda() = " + miJuego.getRonda());
         this.numeroPregunta.setText(miJuego.getRonda());
     }//GEN-LAST:event_numeroPreguntaActionPerformed
 
@@ -316,9 +317,9 @@ public class FormJuego extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grupoRespuestas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField numeroPregunta;
-    private javax.swing.JRadioButton opcionRespuesta3;
     private javax.swing.JRadioButton opcionRespuestaCuatro;
     private javax.swing.JRadioButton opcionRespuestaDos;
+    private javax.swing.JRadioButton opcionRespuestaTres;
     private javax.swing.JRadioButton opcionRespuestaUno;
     private javax.swing.JTextField textoPregunta;
     private javax.swing.JLabel tituloHistorial;
@@ -333,8 +334,14 @@ public class FormJuego extends javax.swing.JFrame {
     private int validarRespuestaSeleccionada(){
         if(this.opcionRespuestaUno.isSelected()){
             return 1;
-        }
-          return 0;  
+        }else
+            if(this.opcionRespuestaDos.isSelected()){
+               return 2; 
+            }else
+            if(this.opcionRespuestaTres.isSelected()){
+               return 3; 
+            }else
+              return 4;  
     }
         
 }

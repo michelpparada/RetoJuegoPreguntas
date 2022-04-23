@@ -79,7 +79,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="textoPregunta" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="opcionRespuesta3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="opcionRespuestaTres" alignment="0" max="32767" attributes="0"/>
                                       <Component id="opcionRespuestaDos" alignment="0" max="32767" attributes="0"/>
                                       <Component id="opcionRespuestaUno" alignment="0" pref="301" max="32767" attributes="0"/>
                                   </Group>
@@ -140,7 +140,7 @@
                   <Component id="opcionRespuestaDos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="opcionRespuesta3" min="-2" max="-2" attributes="0"/>
+                      <Component id="opcionRespuestaTres" min="-2" max="-2" attributes="0"/>
                       <Component id="valorAcumulado" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -216,7 +216,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opcionRespuestaDosActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="opcionRespuesta3">
+        <Component class="javax.swing.JRadioButton" name="opcionRespuestaTres">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="grupoRespuestas"/>
@@ -229,7 +229,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opcionRespuesta3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opcionRespuestaTresActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="opcionRespuestaCuatro">
