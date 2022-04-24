@@ -20,6 +20,7 @@ public class FormAgregarJugador extends javax.swing.JFrame {
         descripcionNuevoJugador = new javax.swing.JLabel();
         tituloRegistroJugador = new javax.swing.JLabel();
         botonSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,44 +61,56 @@ public class FormAgregarJugador extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setText("QUIEN QUIERE SER MILLONARIO");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonSalir))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botonIniciarJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(103, 103, 103)
+                .addComponent(descripcionNuevoJugador)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botonIniciarJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(descripcionNuevoJugador))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(tituloRegistroJugador)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(178, 178, 178)
+                                .addComponent(tituloRegistroJugador)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(botonSalir)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonSalir)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1)))
+                .addGap(36, 36, 36)
                 .addComponent(tituloRegistroJugador)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(descripcionNuevoJugador)
                 .addGap(32, 32, 32)
                 .addComponent(nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(botonIniciarJuego)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,6 +155,7 @@ public class FormAgregarJugador extends javax.swing.JFrame {
     private javax.swing.JButton botonIniciarJuego;
     private javax.swing.JButton botonSalir;
     private javax.swing.JLabel descripcionNuevoJugador;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreJugador;
     private javax.swing.JLabel tituloRegistroJugador;

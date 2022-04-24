@@ -133,7 +133,7 @@ public class FormJuego extends javax.swing.JFrame {
 
         descripcionPremio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         descripcionPremio.setForeground(new java.awt.Color(51, 0, 153));
-        descripcionPremio.setText("VALOR $");
+        descripcionPremio.setText("VALOR PREGUNTA $");
 
         valorPremio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         valorPremio.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,7 @@ public class FormJuego extends javax.swing.JFrame {
         });
 
         tituloHistorial.setBackground(new java.awt.Color(51, 0, 153));
-        tituloHistorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tituloHistorial.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         tituloHistorial.setForeground(new java.awt.Color(51, 0, 153));
         tituloHistorial.setText("QUIEN QUIERE SER MILLONARIO");
 
@@ -161,10 +161,6 @@ public class FormJuego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tituloHistorial)
-                .addGap(152, 152, 152))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonSalir))
@@ -193,13 +189,16 @@ public class FormJuego extends javax.swing.JFrame {
                                         .addComponent(descripcionAcumulado))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(descripcionPregunta)
-                        .addGap(52, 52, 52)
-                        .addComponent(numeroPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(descripcionPremio)
-                        .addGap(43, 43, 43)
-                        .addComponent(valorPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tituloHistorial)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(descripcionPregunta)
+                                .addGap(52, 52, 52)
+                                .addComponent(numeroPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(descripcionPremio)
+                                .addGap(43, 43, 43)
+                                .addComponent(valorPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -212,9 +211,9 @@ public class FormJuego extends javax.swing.JFrame {
                     .addComponent(numeroPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(descripcionPremio)
                     .addComponent(valorPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(tituloHistorial)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(textoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +269,9 @@ public class FormJuego extends javax.swing.JFrame {
 
     private void botonValidarRepuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonValidarRepuestaActionPerformed
         FormValidarRespuesta pantallaValidarRespuesta = new FormValidarRespuesta(validarRespuestaSeleccionada());
+        //System.out.println("validarRespuestaSeleccionada() = " + validarRespuestaSeleccionada());
         pantallaValidarRespuesta.setVisible(true);
+        
         dispose();
     }//GEN-LAST:event_botonValidarRepuestaActionPerformed
 
@@ -331,17 +332,17 @@ public class FormJuego extends javax.swing.JFrame {
         return this.miJuego.llenarRespuesta(i);
     }
     
-    private int validarRespuestaSeleccionada(){
+    private String validarRespuestaSeleccionada(){
         if(this.opcionRespuestaUno.isSelected()){
-            return 1;
+            return this.opcionRespuestaUno.getText();
         }else
             if(this.opcionRespuestaDos.isSelected()){
-               return 2; 
+               return this.opcionRespuestaDos.getText();
             }else
             if(this.opcionRespuestaTres.isSelected()){
-               return 3; 
+               return this.opcionRespuestaTres.getText(); 
             }else
-              return 4;  
+                return this.opcionRespuestaCuatro.getText();  
     }
         
 }

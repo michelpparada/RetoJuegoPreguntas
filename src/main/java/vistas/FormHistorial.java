@@ -33,6 +33,7 @@ public class FormHistorial extends javax.swing.JFrame {
         tablaHistorial = new javax.swing.JTable();
         tituloHistorial = new javax.swing.JLabel();
         botonSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +87,10 @@ public class FormHistorial extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setText("QUIEN QUIERE SER MILLONARIO");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -98,16 +103,19 @@ public class FormHistorial extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(tituloHistorial))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(159, 159, 159)
+                                .addComponent(botonMenu))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(tituloHistorial)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(botonMenu)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,8 +123,10 @@ public class FormHistorial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(botonSalir)
                 .addGap(2, 2, 2)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addComponent(tituloHistorial)
-                .addGap(74, 74, 74)
+                .addGap(29, 29, 29)
                 .addComponent(scrollPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(botonMenu)
@@ -188,6 +198,7 @@ public class FormHistorial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonMenu;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane scrollPanelTabla;
     private javax.swing.JTable tablaHistorial;

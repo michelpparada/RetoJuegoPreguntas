@@ -161,13 +161,20 @@ public class Juego {
         return acumulado;
     }
 
-    public int validarRespuesta(int idRespuesta) {
-        if(this.misRespuestas.get(idRespuesta).get("correcta") == "1"){
-            this.acumularPremio();
-            return 1;
-        }else
-            this.acumulado = 0;
-        return 0;
+    public String validarRespuesta(String respuesta) {
+        String respuesta_correcta="";
+        for (int i = 0; i < this.misRespuestas.size(); i++) {
+         if(this.misRespuestas.get(i).get("respuesta") == respuesta){
+             respuesta_correcta= this.misRespuestas.get(i).get("respuesta_correcta");
+            }
+         }
+//        if(this.misRespuestas.get(respuesta).get("respuesta") == "1"){
+//            this.acumularPremio();
+//            return 1;
+//        }else
+//            this.acumulado = 0;
+        //System.out.println("respuesta_correcta = " + respuesta_correcta);
+        return respuesta_correcta;
     }
 
     public String[][] cargarHistorial() {
