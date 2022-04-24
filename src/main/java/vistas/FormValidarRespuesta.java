@@ -93,12 +93,8 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(274, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(botonSiguientePregunta)
-                        .addGap(190, 190, 190))))
+                .addContainerGap(524, Short.MAX_VALUE)
+                .addComponent(botonSalir))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +115,10 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
                         .addGap(183, 183, 183)
                         .addComponent(juegoTerminado)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(botonSiguientePregunta)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +134,9 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
                 .addComponent(juegoTerminado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(irInicio)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonSiguientePregunta)
-                .addGap(23, 23, 23))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,10 +158,11 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguientePreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePreguntaActionPerformed
+        this.miJuego.incrementarRonda();
         FormJuego pantallaJuego = new FormJuego();
         pantallaJuego.setVisible(true);
         dispose();
-        this.miJuego.incrementarRonda();
+        
         this.miJuego.vaciarRespuestas();
     }//GEN-LAST:event_botonSiguientePreguntaActionPerformed
 
@@ -229,8 +230,11 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
     private String validarRespuesta(String respuesta) {
         respuesta_correcta =Integer.parseInt(this.miJuego.validarRespuesta(respuesta));
         //System.out.println("idRespuesta en metodo validar respuesta de form valira respuesta = " + respuesta_correcta);
-        if(respuesta_correcta==1)
+        if(respuesta_correcta==1){
+            miJuego.acumularPremio();
+            
             return "Verdadera";
+        }
         else
             return "Falsa";
         
@@ -238,7 +242,7 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
     }
 
     private void validarContinuarJuego() {
-    System.out.println("idRespuesta en metodo validar continuar juego = " + respuesta_correcta);
+    
 
         if (this.respuesta_correcta == 0) {
             this.juegoTerminado.setVisible(true);

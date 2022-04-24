@@ -150,11 +150,9 @@ public class Juego {
         return pregunta;
     }
 
-    private void acumularPremio() {
+    public void acumularPremio() {
             this.acumulado += Double.parseDouble(this.getValorPremio());
-      /*  "descripcion","bogota"
-        "pregunta","3"
-        "correcta","1" */
+     
     }
 
     public double getAcumulado() {
@@ -168,12 +166,7 @@ public class Juego {
              respuesta_correcta= this.misRespuestas.get(i).get("respuesta_correcta");
             }
          }
-//        if(this.misRespuestas.get(respuesta).get("respuesta") == "1"){
-//            this.acumularPremio();
-//            return 1;
-//        }else
-//            this.acumulado = 0;
-        //System.out.println("respuesta_correcta = " + respuesta_correcta);
+
         return respuesta_correcta;
     }
 
@@ -199,6 +192,11 @@ public class Juego {
 
     public void incrementarRonda() {
          this.ronda++;
+         System.out.println("this.ronda despues de incrementar = " + this.ronda);
+    }
+
+    public void guardarAcomulado() {
+        
     }
     
     

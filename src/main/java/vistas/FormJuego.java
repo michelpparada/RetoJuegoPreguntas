@@ -8,6 +8,7 @@ public class FormJuego extends javax.swing.JFrame {
     public FormJuego() {
         miJuego = miJuego.ObtenerMiJuego();
         initComponents();
+        //this.numeroPregunta.setText(miJuego.getRonda());
         this.numeroPregunta.setText(miJuego.getRonda());
         this.valorPremio.setText(miJuego.getValorPremio());
         this.valorAcumulado.setText(String.valueOf(miJuego.getAcumulado()));
@@ -280,12 +281,12 @@ public class FormJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonRetiroVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetiroVoluntarioActionPerformed
-        dispose();
+        miJuego.guardarAcomulado();
     }//GEN-LAST:event_botonRetiroVoluntarioActionPerformed
 
     private void numeroPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroPreguntaActionPerformed
-        System.out.println("miJuego.getRonda() = " + miJuego.getRonda());
-        this.numeroPregunta.setText(miJuego.getRonda());
+        //System.out.println("miJuego.getRonda() = " + miJuego.getRonda());
+       
     }//GEN-LAST:event_numeroPreguntaActionPerformed
 
     private void valorPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPremioActionPerformed
