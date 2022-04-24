@@ -7,7 +7,7 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
 
     private Juego miJuego;
     private int respuesta_correcta;
-
+    
     public FormValidarRespuesta(String respuesta) {
         initComponents();
         
@@ -16,6 +16,7 @@ public class FormValidarRespuesta extends javax.swing.JFrame {
             this.irInicio.setVisible(false);
             this.IsRespuesta.setText(validarRespuesta(respuesta));
             validarContinuarJuego();
+            
             //this.miJuego.getAcumulado();
             //this.valorPremioAcumulado.setText(String.valueOf(miJuego.getAcumulado()));
         

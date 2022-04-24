@@ -32,6 +32,16 @@ public class Juego {
     ArrayList<Map<String, String>> misRespuestas;
     private int pregunta;
     private double acumulado;
+    private String nombre_jugador;
+    private String getAcumulado;
+
+    public void setNombre_jugador(String nombre_jugador) {
+        this.nombre_jugador = nombre_jugador;
+    }
+
+    public String getNombre_jugador() {
+        return nombre_jugador;
+    }
     
     public Juego() {
         ronda = 1;
@@ -59,7 +69,7 @@ public class Juego {
             preparedStatement.setString(1,nombre);
             rows = preparedStatement.executeUpdate();
         } catch (SQLException exception) {
-            JOptionPane.showMessageDialog(null, "rror de registro: " + exception.getMessage());
+            JOptionPane.showMessageDialog(null, "error de registro: " + exception.getMessage());
         }
     }
 
@@ -192,11 +202,26 @@ public class Juego {
 
     public void incrementarRonda() {
          this.ronda++;
-         System.out.println("this.ronda despues de incrementar = " + this.ronda);
+         
     }
 
     public void guardarAcomulado() {
-        
+
+       String SQL_UPDATE_ACOMULADO = "UPDATE jugador SET puntaje='"+ this.getAcumulado() + "'  WHERE nombre_jugador='"+ this.getNombre_jugador()+"'";
+
+        try {
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+            
+            Connection connectionClass = conexion.getConnection();
+            int rows = 0;
+
+            preparedStatement = connectionClass.prepareStatement(SQL_UPDATE_ACOMULADO);
+            //preparedStatement.setDouble(1,this.getAcumulado());
+            rows = preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            JOptionPane.showMessageDialog(null, "error de registro: " + exception.getMessage());
+        } 
     }
     
     

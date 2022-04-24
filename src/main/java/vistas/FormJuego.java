@@ -5,6 +5,7 @@ import controlador.Juego;
 public class FormJuego extends javax.swing.JFrame {
     
     private Juego miJuego;
+   
     public FormJuego() {
         miJuego = miJuego.ObtenerMiJuego();
         initComponents();
@@ -270,7 +271,6 @@ public class FormJuego extends javax.swing.JFrame {
 
     private void botonValidarRepuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonValidarRepuestaActionPerformed
         FormValidarRespuesta pantallaValidarRespuesta = new FormValidarRespuesta(validarRespuestaSeleccionada());
-        //System.out.println("validarRespuestaSeleccionada() = " + validarRespuestaSeleccionada());
         pantallaValidarRespuesta.setVisible(true);
         
         dispose();
@@ -281,7 +281,11 @@ public class FormJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonRetiroVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetiroVoluntarioActionPerformed
+        //System.out.println(" this.getAcumulado = " + miJuego.getAcumulado() );
         miJuego.guardarAcomulado();
+        FormPrincipal pantallaPrincipal = new FormPrincipal();
+        pantallaPrincipal.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonRetiroVoluntarioActionPerformed
 
     private void numeroPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroPreguntaActionPerformed

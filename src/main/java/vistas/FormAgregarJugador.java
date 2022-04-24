@@ -129,7 +129,8 @@ public class FormAgregarJugador extends javax.swing.JFrame {
 
     private void botonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarJuegoActionPerformed
         miJuego = miJuego.ObtenerMiJuego();
-        miJuego.insertarJugador(this.nombreJugador.getText());
+        miJuego.setNombre_jugador(this.nombreJugador.getText());
+        miJuego.insertarJugador(miJuego.getNombre_jugador());
         FormJuego pantallaJuego = new FormJuego();
         pantallaJuego.setVisible(true);
         dispose();
